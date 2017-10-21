@@ -34,7 +34,7 @@ n7.add_child(n11)
 n7.add_child(n12)
 
 # Basic dump of the top level of the tree
-#for c in n1.children:
+# for c in n1.children:
 #    print c.data
 
 print('BFS')
@@ -46,13 +46,12 @@ visited = []
 while True:
     if len(stack) == 0:
         print('Done.')
-        break;
+        break
 
     current = stack.popleft()
     print(current.data)
 
     for child in current.children:
-        if  child not in visited:
+        if child not in visited:
             visited.append(child)
             stack.append(child)
-
