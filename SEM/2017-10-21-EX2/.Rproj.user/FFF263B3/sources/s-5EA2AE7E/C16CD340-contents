@@ -1,0 +1,102 @@
+
+# From the last time
+data()
+?rivers
+
+rivers
+mean(rivers)
+median(rivers)
+
+var(rivers)
+sd(rivers)
+
+min(rivers)
+max(rivers)
+sum(rivers)
+cummin(rivers)
+cummax(rivers)
+length(rivers)
+
+rivers[rivers == 3710] = 2500
+rivers[rivers == 2500]
+rivers[68]
+rivers[1:10]
+
+# New excercise
+# Dataframes
+
+
+mtcars
+?mtcars
+
+head(mtcars)
+head(mtcars, 2)
+?head # see man
+
+tail(mtcars)
+tail(mtcars, 3)
+
+nrow(mtcars)
+ncol(mtcars)
+
+# get cols
+mtcars[1, 2]
+mtcars["Mazda RX4", "cyl"]
+mtcars[, "cyl"]
+mtcars[, 2]
+mtcars$cyl
+mtcars[, c("mpg", "cyl")]
+mtcars[, c(1,2)]
+
+# same for rows
+
+# read csv
+# dataset for homework: Pokemon with yellow label of Picahku
+titanic = read.csv("train.csv")
+titanic
+?read.csv
+View(titanic)
+attach(titanic)
+
+titanic$Pclass
+# attach(titanic) to have vectors for every col
+Pclass
+Pclass = c(1)
+Pclass
+titanic$Pclass
+
+names(titanic)
+ls(titanic)
+
+head(titanic)
+tail(titanic)
+
+nrow(mtcars)
+ncol(mtcars)
+
+# analyze the table
+head(titanic, 6)
+table(titanic$Survived)
+barplot(titanic$Survived)
+barplot(table(titanic$Survived))
+prop.table(table(titanic$Survived))
+barplot(prop.table(table(titanic$Survived)))
+barplot(table(titanic$Survived)/length(titanic$Survived), col=c("blue", "red"))
+factor(titanic$Survived)
+
+?table
+?barplot
+
+pie(table(titanic$Survived))
+pie(table(titanic$Survived)/length(titanic$Survived), col=c("blue", "red"))
+
+factor(titanic$Pclass)
+table(titanic$Pclass)
+barplot(table(titanic$Pclass))
+
+table(titanic$Sex)
+barplot(table(titanic$Sex))
+
+table(titanic$Embarked)
+barplot(table(titanic$Embarked))
+prop.table(table(titanic$Embarked))
