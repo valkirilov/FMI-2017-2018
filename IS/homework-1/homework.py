@@ -9,17 +9,9 @@ class Board(object):
             self.size = len(data)
             self.emptyElementIndex = emptyElementIndex
         else:
-            self.data = []
+            self.data = [1]*size + [0] + [-1]*size
             self.size = size*2 + 1
             self.emptyElementIndex = math.floor(size)
-
-            for x in range(0, size):
-                self.data.append(1)
-
-            self.data.append(0)
-
-            for x in range(0, size):
-                self.data.append(-1)
 
     def print(self):
         print(self.data)
@@ -34,34 +26,16 @@ class Board(object):
         return True
 
     def find_moves(self, path=[], indent=''):
-        #print(indent + str(self.data))
-
         currentPath = list(path)
         currentPath.append(self)
-        
-        if (self.check_move(self.emptyElementIndex-1, 1)):
-            newBoard = self.make_move(self.emptyElementIndex-1)
 
-            if find_path(newBoard, currentPath, indent+' '):
-                return 
+        movements = [(-1, 1), (-2, 2), (1, 1), (2, 2)]
+        for move in movements:
+            if (self.check_move(self.emptyElementIndex+move[0], move[1])):
+                newBoard = self.make_move(self.emptyElementIndex+move[0])
 
-        if (self.check_move(self.emptyElementIndex-2, 2)):
-            newBoard = self.make_move(self.emptyElementIndex-2)
-            
-            if find_path(newBoard, currentPath, indent+' '):
-                return
-
-        if (self.check_move(self.emptyElementIndex+1, 1)):
-            newBoard = self.make_move(self.emptyElementIndex+1)
-            
-            if find_path(newBoard, currentPath, indent+' '):
-                return
-
-        if (self.check_move(self.emptyElementIndex+2, 2)):
-            newBoard = self.make_move(self.emptyElementIndex+2)
-            
-            if find_path(newBoard, currentPath, indent+' '):
-                return
+                if find_path(newBoard, currentPath, indent+' '):
+                    return
 
     def check_move(self, index, multiplier):
         if index < 0:
@@ -75,8 +49,9 @@ class Board(object):
         return True
 
     def make_move(self, index):
+        em_index = self.emptyElementIndex
         data = list(self.data)
-        data[index], data[self.emptyElementIndex] = data[self.emptyElementIndex], data[index]
+        data[index], data[em_index] = data[em_index], data[index]
         return Board(data, index)
 
 board = []
@@ -86,6 +61,7 @@ path = []
 def print_path(path):
     for x in range(0, len(path)):
         path[x].print()
+
 
 def find_path(board, path=[], indent=''):
     if board.is_final():
@@ -98,10 +74,10 @@ def find_path(board, path=[], indent=''):
     board.find_moves(path, indent)
 
 
-#board = Board(None, None, 2)
-#board = Board(None, None, 3)
-#board = Board(None, None, 4)
-#board = Board(None, None, 5)
-board = Board(None, None, 6)
+# board = Board(None, None, 2)
+# board = Board(None, None, 3)
+# board = Board(None, None, 4)
+# board = Board(None, None, 5)
+board = Board(None, None, 10)
 
 find_path(board, [], '')
