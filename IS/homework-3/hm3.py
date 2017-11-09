@@ -1,7 +1,10 @@
 
 import random
+import time
 
-n = 4
+start_time = time.time()
+
+n = 1000
 
 # Queens orderred by rows with their positions by columns
 # queens_positions = [2, 0, 3, 1]
@@ -37,82 +40,86 @@ def init_queens_board(queens_positions, board):
     """
 
     for i in range(0, n):
-        print('Position ' + str(i) + 'th queen')
-        position, value = get_board_row_cheapest_position(board, i)
-        queens_positions[i] = position
-        print(' Cheapest posotion is at: ' + str(position))
-        print_queens_board(queens_positions)
-        board = calculate_board_weight(queens_positions, board, i)
+        position = get_board_row_cheapest_position(board, i)
+        queens_positions[i] = position[1]
+        board = calculate_board_weight(queens_positions, board, position)
 
+    # print_queens_board(queens_positions)
+    # print_chess_board(board)
     return queens_positions, board
 
 
 def calculate_board_weight(queens, board, attack_position, leave_position=None):
-    print_chess_board(board)
     i = attack_position
     j = leave_position
 
-    print('Calculate chess board')
-    print_chess_board(board)
     if j is not None:
-        print('Leave queen from position ' + str(j))
         board = queen_leave_top_right(j[0], j[1], board)
         board = queen_leave_top_left(j[0], j[1], board)
         board = queen_leave_bottom_right(j[0], j[1], board)
         board = queen_leave_bottom_left(j[0], j[1], board)
         board = queen_leave_vertical(j[0], j[1], board)
-        print()
-        print_chess_board(board)
 
-    if queens[i] is not -1:
-        print('Move queen and attck to position ' + str(i) + ', ' + str(queens[i]))
-        board = queen_attack_top_right(i, queens[i], board)
-        board = queen_attack_top_left(i, queens[i], board)
-        board = queen_attack_bottom_right(i, queens[i], board)
-        board = queen_attack_bottom_left(i, queens[i], board)
-        board = queen_attack_vertical(i, queens[i], board)
-        print()
-        print_chess_board(board)
+    if queens[i[0]] is not -1:
+        board = queen_attack_top_right(i[0], i[1], board)
+        board = queen_attack_top_left(i[0], i[1], board)
+        board = queen_attack_bottom_right(i[0], i[1], board)
+        board = queen_attack_bottom_left(i[0], i[1], board)
+        board = queen_attack_vertical(i[0], i[1], board)
 
     return board
 
 
-def get_board_cheapest_position(board):
-    cheapest_positions_by_rows = []
-    for i in range(0, n):
-        index, value = get_board_row_cheapest_position(board, i)
-        cheapest_positions_by_rows.append((value, index, i)) # (value, col, row)
+def get_board_most_expensive_position(board):
+    most_expensive_positions_by_rows = []
+    for i in range(n):
+        index, value = queens_positions[i], board[i][queens_positions[i]]
+        most_expensive_positions_by_rows.append((value, (i, index))) # (value, (row, col))
 
-    print_chess_board(board)
-    print('Cheapest positions by rows: (value, col, row)')
-    print(cheapest_positions_by_rows)
+    # Get random expensive position
+    max_value = most_expensive_positions_by_rows[0][0]
+    max_values = []
+    for j in range(len(most_expensive_positions_by_rows)):
+        if most_expensive_positions_by_rows[j][0] >= max_value:
+            if max_value < most_expensive_positions_by_rows[j][0]:
+                max_values = []
 
-    cheapest_position = min(cheapest_positions_by_rows)
-    print('The cheapest position is: ' + str(cheapest_position))
-    return cheapest_position
+            max_value = most_expensive_positions_by_rows[j][0]
+            max_values.append(most_expensive_positions_by_rows[j])
+
+    most_expensive_position = random.randint(0, len(max_values)-1)
+
+    return max_values[most_expensive_position]
 
 
 def get_board_row_cheapest_position(board, row):
     row_without_queen = []
 
-    #print('The queen is at position: ' + str(queens_positions[row]))
     for i in range(0, n):
         if (i is not queens_positions[row]):
             row_without_queen.append((board[row][i], i))
 
-    cheapest_position = min(row_without_queen)
-    #print(row_without_queen)
-    #print('Minimum value of ' + str(cheapest_position[1]) + ' found on position ' + str(cheapest_position[0]))
-    return cheapest_position[1], cheapest_position[0]
+    # Get random cheapest position
+    min_value = row_without_queen[0][0]
+    min_values = []
+    for j in range(len(row_without_queen)):
+        if row_without_queen[j][0] <= min_value:
+            if min_value > row_without_queen[j][0]:
+                min_values = []
+
+            min_value = row_without_queen[j][0]
+            min_values.append(row_without_queen[j])
+
+    cheapest_position = random.randint(0, len(min_values)-1)
+
+    return (row, min_values[cheapest_position][1])
 
 
-def make_move(queens_positions, board, new_position):
-    old_position = (new_position[2], queens_positions[new_position[2]])
-    queens_positions[new_position[2]] = new_position[1]
+def make_move(queens_positions, board, old_position):
+    new_position = get_board_row_cheapest_position(board, old_position[0])
+    queens_positions[old_position[0]] = new_position[1]
 
-    print_queens_board(queens_positions)
-
-    board = calculate_board_weight(queens_positions, board, new_position[2], old_position)
+    board = calculate_board_weight(queens_positions, board, new_position, old_position)
     return queens_positions, board
 
 
@@ -124,19 +131,16 @@ def check_is_final(queens_positions, board):
 
 
 def find_solution(queens_positions, board):
-    if check_is_final(queens_positions, board):
-        print('Solution found')
-        print_queens_board(queens_positions)
-        print_chess_board(board)
-        exit()
-
     for i in range(0, 100):
-        print('Searching for solution. Attempt #' + str(i))
-        input("Press Enter to continue...")
-        print_queens_board(queens_positions)
-        cheapest_position = get_board_cheapest_position(board)
-        queens_positions, board = make_move(queens_positions, board, cheapest_position)
+        if check_is_final(queens_positions, board):
+            print('Solution found at move ' + str(i))
+            print_queens_board(queens_positions)
+            print_chess_board(board)
+            return True
 
+        most_expensive_position = get_board_most_expensive_position(board)
+        queens_positions, board = make_move(queens_positions, board, most_expensive_position[1])
+    return False
 
 
 # Attack functions which adds values to the board on the attacked positions
@@ -227,7 +231,17 @@ def queen_action_vertical(row, queen_position, board, action):
 
     return board
 
+while True:
 
-queens_positions, board = init_queens_board(queens_positions, board)
-find_solution(queens_positions, board)
+    # Queens orderred by rows with their positions by columns
+    # queens_positions = [2, 0, 3, 1]
+    queens_positions = [-1]*n
 
+    # Board with values for the number of attacks of every field
+    board = [x[:] for x in [[0] * n] * n]
+
+    queens_positions, board = init_queens_board(queens_positions, board)
+
+    if find_solution(queens_positions, board):
+        print("--- %s seconds ---" % (time.time() - start_time))
+        break
