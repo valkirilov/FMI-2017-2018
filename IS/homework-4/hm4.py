@@ -12,7 +12,7 @@ items_count = None
 population_states_count = 300
 
 # How mane ages of mutation we will watch
-ages_count = 50
+ages_count = 25
 
 # Selection process percent
 selection_percent = 0.2
@@ -83,23 +83,23 @@ def compare_states(state1, state2):
 
 
 def genetic_algorithm(population_states):
+    # Log start state
+    print(fitness(population_states[0]))
+
     for age in range(ages_count):
         print('Start age ' + str(age))
         for k in range(population_states_count):
             child = None
             while True:
                 child = generate_crossover(population_states)
-                if fitness(child) > 0:
-                    break
-
-            while True:
                 child = mutate_state(child)
                 if fitness(child) > 0:
                     break
 
             population_states.append(child)
-            population_states = sorted(population_states, key=fitness, reverse=True)
-            population_states = population_states[0:population_states_count]
+    
+        population_states = sorted(population_states, key=fitness, reverse=True)
+        population_states = population_states[0:population_states_count]
 
         # Log best state
         print(fitness(population_states[0]))
