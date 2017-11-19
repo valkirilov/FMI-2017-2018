@@ -86,3 +86,13 @@ plot(emissions$CO2 ~ emissions$GDP)
 weight = c(150, 135, 210, 140)
 height = c(65, 61, 70, 65)
 gender = c("Fe","Fe","M","Fe")
+nationality = c("BG", "ESP", "BG", "BG")
+study = data.frame(weight,height,gender, nationality) # make the data frame
+study
+table(study)
+
+data(PlantGrowth)
+unstack(PlantGrowth)
+table(unstack(PlantGrowth))
+boxplot(unstack(PlantGrowth))
+simple.violinplot(unstack(PlantGrowth))
