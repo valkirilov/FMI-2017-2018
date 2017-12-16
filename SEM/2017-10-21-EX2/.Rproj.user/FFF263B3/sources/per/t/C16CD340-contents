@@ -15,6 +15,7 @@ max(rivers)
 sum(rivers)
 cummin(rivers)
 cummax(rivers)
+?cummin
 length(rivers)
 
 rivers[rivers == 3710] = 2500
@@ -76,13 +77,16 @@ ncol(mtcars)
 
 # analyze the table
 head(titanic, 6)
+titanic$Survived
 table(titanic$Survived)
+table(titanic$Age)
 barplot(titanic$Survived)
 barplot(table(titanic$Survived))
 prop.table(table(titanic$Survived))
 barplot(prop.table(table(titanic$Survived)))
 barplot(table(titanic$Survived)/length(titanic$Survived), col=c("blue", "red"))
 factor(titanic$Survived)
+?factor
 
 ?table
 ?barplot
@@ -92,6 +96,8 @@ pie(table(titanic$Survived)/length(titanic$Survived), col=c("blue", "red"))
 
 factor(titanic$Pclass)
 table(titanic$Pclass)
+table(titanic$Sex)
+table(titanic$Embarked)
 barplot(table(titanic$Pclass))
 
 table(titanic$Sex)
@@ -100,6 +106,7 @@ barplot(table(titanic$Sex))
 table(titanic$Embarked)
 barplot(table(titanic$Embarked))
 prop.table(table(titanic$Embarked))
+barplot(prop.table(table(titanic$Embarked)))
 
 # second part
 titanic$SibSp
@@ -115,6 +122,9 @@ quantile((titanic$SibSp), 0.25)
 quantile((titanic$SibSp), 0.50)
 q3 = quantile((titanic$SibSp), 0.75)
 
+summary(titanic$SibSp)
+boxplot(titanic$SibSp, horizontal = TRUE)
+
 q3 + 1.5*IQR(titanic$SibSp)
 
 fivenum(titanic$SibSp)
@@ -122,6 +132,7 @@ summary(titanic$SibSp)
 
 sort(titanic$SibSp)
 
+?stem
 stem(titanic$SibSp)
 hist(titanic$SibSp)
 boxplot(titanic$SibSp)
@@ -131,6 +142,7 @@ stem(x)
 
 # alone
 titanic$Age
+head(titanic$Age)
 min(titanic$Age)
 max(titanic$Age)
 mean(titanic$Age)
@@ -155,7 +167,9 @@ library(UsingR)
 
 south
 ?south
+View(south)
 hist(south)
+summary(south)
 boxplot(south, horizontal = TRUE)
 
 crime
@@ -163,6 +177,7 @@ crime
 hist(crime$y1983)
 hist(crime$y1993)
 boxplot(crime$y1983, horizontal = TRUE)
+boxplot(crime$y1993, horizontal = TRUE)
 
 aid
 ?aid

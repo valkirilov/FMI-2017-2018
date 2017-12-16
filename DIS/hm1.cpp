@@ -39,15 +39,28 @@ int main() {
 		cout << "The limit is positive infinity." << endl;
 	}
 
-	cout << "Enter five indices to see their corresponding values from the sequence" << endl;
+	cout << endl << "Enter five indices to see their corresponding values from the sequence:" << endl;
 
 	if(a1!=20) {
-		cin >> index1 >> index2 >> index3 >> index4 >> index5;
-		cout << "The value of term number " << index1 <<" equals " << rec(a1, index1) << endl;
-		cout << "The value of term number " << index2 <<" equals " << rec(a1, index2) << endl;
-		cout << "The value of term number " << index3 <<" equals " << rec(a1, index3) << endl;
-		cout << "The value of term number " << index4 <<" equals " << rec(a1, index4) << endl;
-		cout << "The value of term number " << index5 <<" equals " << rec(a1, index5) << endl;
+		cout << "Index 1: ";
+		cin >> index1;
+		cout << "Value = " << rec(a1, index1) << endl << endl;
+		
+		cout << "Index 2: ";
+		cin >> index2;
+		cout << "Value =  " << rec(a1, index2) << endl << endl;
+		
+		cout << "Index 3: ";
+		cin >> index3;
+		cout << "Value =  " << rec(a1, index3) << endl << endl;
+		
+		cout << "Index 4: ";
+		cin >> index4;
+		cout << "Value =  " << rec(a1, index4) << endl << endl;
+		
+		cout << "Index 5: ";
+		cin >> index5;
+		cout << "Value =  " << rec(a1, index5) << endl;
 	}
 
     return 0;
