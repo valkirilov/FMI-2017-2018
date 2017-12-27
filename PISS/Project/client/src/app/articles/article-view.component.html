@@ -1,0 +1,28 @@
+
+<div class="main">
+  <div class="post">
+    <div class="post-title">
+      <h2><a href="#">{{article.title}}</a></h2>
+    </div>
+    <div class="post-date">{{article.date_published}} by {{article.author.name}}</div>
+    <div class="post-body">
+      <p style="height: 400px; overflow: hidden;">
+        <img src="{{config.env.mediaUrl}}{{article.image}}" alt="{{article.image}}" class="bordered" style="width: 100%;" />
+      </p>
+      <p class="large">{{article.content}}</p>
+  </div>
+  <div class="content-separator"></div>
+
+  <div *ngFor="let article of suggestedArticles">
+    <div class="post">
+      <a [routerLink]="['/article', article.id]">
+        <img src="{{config.env.mediaUrl}}{{article.image}}" alt="{{article.image}}" class="left bordered" style="width: 250px;" />
+      </a>
+      <h3><a [routerLink]="['/article', article.id]">{{article.title}}</a></h3>
+      <p>{{article.description}}</p>
+      <a [routerLink]="['/article', article.id]" class="more">Read more &#187;</a>
+      <div class="clearer">&nbsp;</div>
+    </div>
+    <div class="content-separator"></div>
+  </div>
+</div>

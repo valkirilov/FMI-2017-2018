@@ -18,8 +18,10 @@ import 'rxjs/add/observable/forkJoin';
 
 //import { RootService } from './../core/root.service';
 import { ArticleService } from './article.service';
+import { CategoryService } from './category.service';
 
 import { Article } from './../models/article.model';
+import { Category } from './../models/category.model';
 
 import { environment } from './../../environments/environment';
 
@@ -30,6 +32,8 @@ import { environment } from './../../environments/environment';
 export class ArticleListComponent implements OnInit, OnDestroy {
 
   articles: Array<Article> = [];
+  latestArticles: Array<Article> = [];
+  mostViewedArticles: Array<Article> = [];
 
   config = {
     pageTitle: 'Articles',
@@ -46,6 +50,7 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   constructor(
     //private rootService: RootService,
     private articleService: ArticleService,
+    private categoryService: CategoryService,
     private toastr: ToastsManager,
     private vcr: ViewContainerRef,
     private modalService: NgbModal,
@@ -59,78 +64,64 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.titleService.setTitle(`${this.config.pageTitle} - ${this.config.env.website.title}`);
 
-    let getArticles = this.articleService.getArticles();
+    let getArticles = this.articleService.getArticles({ paginate: true });
+    let getLatestArticles = this.articleService.getArticles({ count: 15, orderBy: 'date_published', orderDirection: 'desc' });
+    let getMostViewedArticles = this.articleService.getArticles({ count: 15 });
 
-    Observable.forkJoin([getArticles])
-              .subscribe(
-                response => {
-                  this.articles = response[0];
+    Observable.forkJoin([
+        getArticles,
+        getLatestArticles,
+        getMostViewedArticles,
+      ])
+      .subscribe(
+        response => {
+          this.articles = response[0];
+          this.latestArticles = response[1];
+          this.mostViewedArticles = response[2];
 
-                  // Check for query params which are already in the URL
-                  //this.handleQueryParamsFilters(this.route.snapshot.queryParams);
-                },
-                error => this.toastr.error(error, 'Error!', { positionClass: 'toast-bottom-right' })
-              );
+          // Check for query params which are already in the URL
+          this.handleQueryParamsFilters(this.route.snapshot.queryParams);
+        },
+        error => this.toastr.error(error, 'Error!', { positionClass: 'toast-bottom-right' })
+      );
 
-    // this.routerSubscriber = this.router.events.subscribe(
-    //                                             event => {
-    //                                               if (event instanceof NavigationEnd) {
-    //                                                 let params = this.route.snapshot.queryParams;
-    //                                                 this.handleQueryParamsFilters(params);
-    //                                               }
-    //                                             }
-    //                                           );
+    this.routerSubscriber = this.router.events.subscribe(
+      event => {
+        if (event instanceof NavigationEnd) {
+          let params = this.route.snapshot.queryParams;
+          this.handleQueryParamsFilters(params);
+        }
+      }
+    );
 
     // this.timeReportsSubscription = this.timeReportsService.refreshTimeReportsSource$
     //                                                       .subscribe(response => this.getTimeReportsData());
   }
 
   ngOnDestroy() {
-    // this.routerSubscriber.unsubscribe();
+    this.routerSubscriber.unsubscribe();
   }
 
   /**
    * Apply the query params to the filters form and forche new fetch of the data
    * @param {any} params [description]
    */
-  // handleQueryParamsFilters(params: any) {
-  //   if (params.fromDate) {
-  //     this.listTimeReportsForm.patchValue({ fromDate: this.dateToNgbStruct(params.fromDate) });
-  //   }
+  handleQueryParamsFilters(params: any) {
+    // Get time reports data according to the filters above
+    this.getArtclesData(params);
+  }
 
-  //   if (params.toDate) {
-  //     this.listTimeReportsForm.patchValue({ toDate: this.dateToNgbStruct(params.toDate) });
-  //   }
-
-  //   if (params.project) {
-  //     this.listTimeReportsForm.patchValue({ project: params.project });
-  //   }
-
-  //   if (params.profile) {
-  //     this.listTimeReportsForm.patchValue({ profile: params.profile });
-  //   }
-
-  //   // Get time reports data according to the filters above
-  //   this.getTimeReportsData();
-
-  //   // Open a modal with info about the time report if provided
-  //   if (params.report) {
-  //     const modalRef = this.modalService.open(ViewTimeReportComponent);
-  //     modalRef.componentInstance.timeReportId = params.report;
-
-  //     modalRef.result.then(
-  //                      result => {
-  //                        var queryParams = Object.assign({}, this.route.snapshot.queryParams);
-  //                        delete queryParams.report;
-  //                        this.router.navigate(['/time-reports'], { queryParams: queryParams });
-  //                      },
-  //                      reason =>{
-  //                        var queryParams = Object.assign({}, this.route.snapshot.queryParams);
-  //                        delete queryParams.report;
-  //                        this.router.navigate(['/time-reports'], { queryParams: queryParams });
-  //                      }
-  //                    );
-  //   }
-  // }
+    /**
+   * Get the stored data in the filters form and request data according to it
+   */
+  getArtclesData(params) {
+    this.articleService.getArticles(params)
+      .subscribe(
+        articles => {
+          this.articles = articles;
+        },
+        error => this.toastr.error(error, 'Error!', { positionClass: 'toast-bottom-right' })
+      );
+  }
 
 }

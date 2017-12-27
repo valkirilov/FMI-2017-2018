@@ -6,6 +6,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://0.0.0.0:8000/api/',
+  mediaUrl: 'http://0.0.0.0:8000/storage/images/',
   website: {
     title: "News",
   },

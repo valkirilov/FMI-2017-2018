@@ -1,3 +1,51 @@
-<ul>
-	<li *ngFor="let article of articles">{{article.title}}</li>
-</ul>
+
+<div class="main" id="main-two-columns">
+  <div class="left" id="main-left">
+    <div *ngFor="let article of articles">
+      <div class="post">
+        <a [routerLink]="['/article', article.id]">
+          <img src="{{config.env.mediaUrl}}{{article.image}}" alt="{{article.image}}" class="left bordered" />
+        </a>
+        <h3><a [routerLink]="['/article', article.id]">{{ article.title }}</a></h3>
+        <p>{{ article.description }}</p>
+        <a [routerLink]="['/article', article.id]" class="more">Read more &#187;</a>
+        <div class="clearer">&nbsp;</div>
+      </div>
+      <div class="content-separator"></div>
+    </div>
+  </div>
+
+  <div class="right sidebar" id="sidebar">
+
+    <div class="section">
+      <div class="section-title">
+        <div class="left">Latest News</div>
+        <div class="right"><img src="img/icon-time.gif" width="14" height="14" alt="" /></div>
+        <div class="clearer">&nbsp;</div>
+      </div>
+      <div class="section-content">
+        <ul class="nice-list">
+          <li *ngFor="let article of latestArticles">
+            <div class="left"><a [routerLink]="['/article', article.id]">{{ article.title }}</a></div>
+            <div class="right">{{ article.date_published }}</div>
+            <div class="clearer">&nbsp;</div>
+          </li>
+          <li><a href="#" class="more">Browse all &#187;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Most Viewed</div>
+      <div class="section-content">
+        <ul class="nice-list">
+          <li *ngFor="let article of mostViewedArticles; let i = index">
+            <span class="quiet">{{ i+1 }}.</span> <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
+          </li>
+          <li><a href="#" class="more">Browse all &#187;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+</div>

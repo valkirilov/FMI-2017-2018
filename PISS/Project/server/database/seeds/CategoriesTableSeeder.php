@@ -15,13 +15,11 @@ class CategoriesTableSeeder extends Seeder
         // Let's truncate our existing records to start from scratch.
         Category::truncate();
 
-        $faker = \Faker\Factory::create();
-
-        // And now, let's create a few categories in our database:
-        for ($i = 0; $i < 10; $i++) {
-            Category::create([
-                'name' => $faker->name
-            ]);
-        }
+        Category::create(['name' => 'News']);
+        Category::create(['name' => 'Politics']);
+        Category::create(['name' => 'Culture']);
+        Category::create(['name' => 'Sport']);
+        Category::create(['name' => 'Debate']);
+        Category::create(['name' => 'Enterntainment']);
     }
 }

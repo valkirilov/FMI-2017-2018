@@ -7,8 +7,10 @@ import { MomentModule } from 'angular2-moment';
 
 //import { SharedModule }       from './../shared/shared.module';
 import { ArticleListComponent }    from './article-list.component';
+import { ArticleViewComponent }    from './article-view.component';
 
 import { ArticleService }     from './article.service';
+import { CategoryService }     from './category.service';
 
 import { ArticleRoutingModule } from './article-routing.module';
 
@@ -24,9 +26,11 @@ import { ArticleRoutingModule } from './article-routing.module';
   ],
   declarations: [
     ArticleListComponent,
+    ArticleViewComponent,
   ],
   providers: [
     ArticleService,
+    CategoryService,
   ]
 })
 export class ArticleModule {}

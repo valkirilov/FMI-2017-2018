@@ -9,40 +9,23 @@ import 'rxjs/add/observable/throw';
 
 import { environment } from './../../environments/environment';
 
-import { Article } from './../models/article.model';
+import { Category } from './../models/category.model';
 
 @Injectable()
-export class ArticleService {
-  private getUrl = environment.apiUrl + 'articles';
+export class CategoryService {
+  private getUrl = environment.apiUrl + 'categories';
 
   constructor (private http: Http) {}
 
-  getArticles(params: any): Observable<Article[]> {
+  getCategories(): Observable<Category[]> {
     let apiUrl = this.getUrl;
     let headers = new Headers({
       'Content-Type': 'application/json',
     });
-    let options = new RequestOptions({
-      headers: headers,
-      params: params
-    });
+    let options = new RequestOptions({ headers: headers });
 
     return this.http.get(apiUrl, options)
-                    .map(this.extractArticlesData)
-                    .catch(this.handleError);
-  }
-
-  getArticle(id: number): Observable<Article> {
-    let apiUrl = this.getUrl + '/' + id + '/';
-    let headers = new Headers({
-      'Content-Type': 'application/json',
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-
-    return this.http.get(apiUrl, options)
-                    .map(this.extractArticleData)
+                    .map(this.extractCategoriesData)
                     .catch(this.handleError);
   }
 
@@ -52,22 +35,7 @@ export class ArticleService {
    * Extract the body data from the response and serialize it
    * @param {Response} res HttpResponse object
    */
-  private extractArticlesData(res: Response) {
-    let body = res.json();
-
-    if (body.data !== undefined) {
-      return body.data || {};
-    }
-    else {
-      return body || {};
-    }
-  }
-
-   /**
-   * Extract the body data from the response and serialize it
-   * @param {Response} res HttpResponse object
-   */
-  private extractArticleData(res: Response) {
+  private extractCategoriesData(res: Response) {
     let body = res.json();
 
     return body || {};
@@ -88,7 +56,7 @@ export class ArticleService {
     }
     console.error(errMsg);
     if (errMsg === '{"isTrusted":true}') {
-      return Observable.throw('Could\'t fetch Articles data from the server.');
+      return Observable.throw('Could\'t fetch Categories data from the server.');
     }
     return Observable.throw(errMsg);
   }
