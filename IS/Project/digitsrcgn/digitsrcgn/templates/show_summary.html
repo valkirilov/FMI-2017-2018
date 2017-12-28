@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    <link  href="{{ url_for('static', filename='summary.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+
+        <div class="pricing-table group">
+            <h1 class="heading">
+                Summary
+            </h1>
+
+            <!-- KNN -->
+            <div id="pane-KNN" class="block knn fl">
+                <h2 class="title">K-nearest Neighbours</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="accuracy">
+                        <span>N/A</span>
+                    </p>
+                    <p class="hint">Accuracy</p>
+                </div>
+                <!-- /CONTENT -->
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li>
+                        <span class="fontawesome-cog"></span>
+                        <span class="training-data">N/A</span> items of training data
+                    </li>
+                    <li>
+                        <span class="fontawesome-star"></span>
+                        <span class="test-data">N/A</span> items of testing data
+                    </li>
+                    <li>
+                        <span class="fontawesome-dashboard"></span>
+                        <span class="successfully-classified-data">N/A</span> successfully classified
+                    </li>
+                    <li>
+                        <span class="fontawesome-cloud"></span>
+                        <span class="memory-consumption">N/A</span>  memory consumption
+                    </li>
+                </ul>
+                <!-- /FEATURES -->
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                    <p>Host My Website</p>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /knn -->
+
+            <!-- PROFESSIONAL -->
+            <div class="block professional fl">
+                <h2 class="title">Professional</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="price">
+                        <sup>$</sup>
+                        <span>99</span>
+                        <sub>/mo.</sub>
+                    </p>
+                    <p class="hint">Suitable for startups</p>
+                </div>
+                <!-- /CONTENT -->
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li><span class="fontawesome-cog"></span>10 WordPress Install</li>
+                    <li><span class="fontawesome-star"></span>100,000 visits/mo.</li>
+                    <li><span class="fontawesome-dashboard"></span>Unlimited Data Transfer</li>
+                    <li><span class="fontawesome-cloud"></span>20GB Local Storage</li>
+                </ul>
+                <!-- /FEATURES -->
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                    <p>Host My Website</p>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /PROFESSIONAL -->
+
+            <!-- BUSINESS -->
+            <div class="block business fl">
+                <h2 class="title">Business</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="price">
+                        <sup>$</sup>
+                        <span>249</span>
+                        <sub>/mo.</sub>
+                    </p>
+                    <p class="hint">For established business</p>
+                </div>
+                <!-- /CONTENT -->
+
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li><span class="fontawesome-cog"></span>25 WordPress Install</li>
+                    <li><span class="fontawesome-star"></span>400,000 visits/mo.</li>
+                    <li><span class="fontawesome-dashboard"></span>Unlimited Data Transfer</li>
+                    <li><span class="fontawesome-cloud"></span>30GB Local Storage</li>
+                </ul>
+                <!-- /FEATURES -->
+
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                    <p>Host My Website</p>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /BUSINESS -->
+
+
+        </div>
+        <!-- /PRICING-TABLE -->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='summary.js') }}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
