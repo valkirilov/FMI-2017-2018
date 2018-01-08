@@ -7,5 +7,5 @@
 3. php artisan migrate
 4. mkdir storage/app/public/images
 5. php artisan storage:link 
-6. php artidan db:seed
+6. php artisan db:seed
 7. php artisan serve --host=0.0.0.0
