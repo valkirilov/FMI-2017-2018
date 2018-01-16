@@ -17,15 +17,32 @@ export class ArticleService {
 
   constructor (private http: Http) {}
 
-  getArticles(): Observable<Article[]> {
+  getArticles(params: any): Observable<Article[]> {
     let apiUrl = this.getUrl;
     let headers = new Headers({
       'Content-Type': 'application/json',
     });
-    let options = new RequestOptions({ headers: headers });
+    let options = new RequestOptions({
+      headers: headers,
+      params: params
+    });
 
     return this.http.get(apiUrl, options)
                     .map(this.extractArticlesData)
+                    .catch(this.handleError);
+  }
+
+  getArticle(id: number): Observable<Article> {
+    let apiUrl = this.getUrl + '/' + id + '/';
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return this.http.get(apiUrl, options)
+                    .map(this.extractArticleData)
                     .catch(this.handleError);
   }
 
@@ -38,16 +55,20 @@ export class ArticleService {
   private extractArticlesData(res: Response) {
     let body = res.json();
 
-    // let user: User = new User();
+    if (body.data !== undefined) {
+      return body.data || {};
+    }
+    else {
+      return body || {};
+    }
+  }
 
-    // if (body) {
-    //   user.id = body.id;
-    //   user.email = body.email_address;
-    //   user.firstName = body.first_name;
-    //   user.lastName = body.last_name;
-    //   user.jobTitle = body.job_title;
-    //   user.phoneNumber = body.phone_number;
-    // }
+   /**
+   * Extract the body data from the response and serialize it
+   * @param {Response} res HttpResponse object
+   */
+  private extractArticleData(res: Response) {
+    let body = res.json();
 
     return body || {};
   }

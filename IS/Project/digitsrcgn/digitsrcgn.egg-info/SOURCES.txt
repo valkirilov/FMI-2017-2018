@@ -1,0 +1,13 @@
+MANIFEST.in
+digitsrcgn/__init__.py
+digitsrcgn/digitsrcgn.py
+digitsrcgn.egg-info/PKG-INFO
+digitsrcgn.egg-info/SOURCES.txt
+digitsrcgn.egg-info/dependency_links.txt
+digitsrcgn.egg-info/requires.txt
+digitsrcgn.egg-info/top_level.txt
+digitsrcgn/static/editor.js
+digitsrcgn/static/style.css
+digitsrcgn/templates/layout.html
+digitsrcgn/templates/show_editor.html
+digitsrcgn/templates/show_entries.html

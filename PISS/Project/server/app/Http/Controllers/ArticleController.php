@@ -12,9 +12,39 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Article::all();
+        $isPaginated = $request->get('paginate');
+        $count = $request->get('count');
+        $orderBy = $request->get('orderBy');
+        $orderDirection = $request->get('orderDirection');
+        $categoryId = $request->get('category_id');
+
+        $articles = new Article();
+        $articles = $articles->with('author')->with('category')->with('tags');
+
+        if ($orderBy && $orderDirection) {
+            $articles = $articles->orderBy($orderBy, $orderDirection);
+        }
+        else {
+            $articles = $articles->orderBy('date_published', 'desc');
+        }
+
+        if ($categoryId) {
+            $articles = $articles->where('category_id', $categoryId);
+        }
+
+        if ($isPaginated) {
+            $articles = $articles->paginate();
+        }
+        else if ($count) {
+            $articles = $articles->take($count)->get();
+        }
+        else {
+            $articles = $articles->get();
+        }
+
+        return $articles;
     }
 
     /**

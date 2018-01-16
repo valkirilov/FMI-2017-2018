@@ -1,0 +1,21 @@
+{
+  "name": "digitsrcgn",
+  "homepage": "https://github.com/valkirilov/FMI-2017-2018",
+  "authors": [
+    "Valentin Kirilov <val.kirilov@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "digitsrcgn/digitsrcgn/static/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
