@@ -1,0 +1,24 @@
+{% extends 'article/base.html' %}
+
+{% block menu %}
+    <div id="header">
+      <div class="clearer">&nbsp;</div>
+      <div id="site-title">
+        <h1><a href="{{ url_for('article_mod.articles') }}">Simple Magazine</a> <span> / News Project</span></h1>
+      </div>
+      <div id="navigation">
+        <div id="main-nav">
+          <ul class="tabbed">
+            {% for category in context.categories %}
+              <li>
+                  <a href="{{ url_for('article_mod.articles') }}?category={{ category.id }}">
+                    {{ category.name }}
+                  </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="clearer">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

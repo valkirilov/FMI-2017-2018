@@ -10,8 +10,8 @@ app.config.from_object('config')
 
 manager = Manager(app)
 
-from app.example.views import example_mod as example_mod
-app.register_blueprint(example_mod)
+from app.article.views import article_mod as article_mod
+app.register_blueprint(article_mod)
 # Import a module / component using its blueprint handler variable (mod_auth)
 # from app.mod_auth.controllers import mod_auth as auth_module
 
