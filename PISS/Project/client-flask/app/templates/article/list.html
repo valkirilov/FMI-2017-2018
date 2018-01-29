@@ -1,0 +1,60 @@
+{% extends 'article/index.html' %}
+
+{% block articles %}
+
+    <div class="main" id="main-two-columns">
+      <div class="left" id="main-left">
+        {% for article in context.articles %}
+          <div class="post">
+            <a href="{{ url_for('.article', article_id=article.id) }}">
+              <img src="{{context.media_url}}{{article.image}}" alt="{{article.image}}" class="left bordered" />
+            </a>
+            <h3><a href="{{ url_for('.article', article_id=article.id) }}">{{ article.title }}</a></h3>
+            <p>{{ article.description }}</p>
+            <a href="{{ url_for('.article', article_id=article.id) }}" class="more">Read more &#187;</a>
+            <div class="clearer">&nbsp;</div>
+          </div>
+          <div class="content-separator"></div>
+        {% endfor %}
+      </div>
+
+      <div class="right sidebar" id="sidebar">
+
+        <div class="section">
+          <div class="section-title">
+            <div class="left">Latest News</div>
+            <div class="right"><img src="{{ url_for('static', filename='images/icon-time.gif') }}" width="14" height="14" alt="" /></div>
+            <div class="clearer">&nbsp;</div>
+          </div>
+          <div class="section-content">
+            <ul class="nice-list">
+              {% for article in context.latest_articles %}
+                <li>
+                    <div class="left"><a href="{{ url_for('.article', article_id=article.id) }}">{{ article.title }}</a></div>
+                    <div class="right">{{ article.date_published }}</div>
+                    <div class="clearer">&nbsp;</div>
+                </li>
+              {% endfor %}
+              <li><a href="#" class="more">Browse all &#187;</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Most Viewed</div>
+          <div class="section-content">
+            <ul class="nice-list">
+              {% for article in context.most_viewed_articles %}
+                <li>
+                  <span class="quiet"> {{ loop.index }}.</span> <a href="{{ url_for('.article', article_id=article.id) }}">{{ article.title }}</a>
+                </li>
+              {% endfor %}
+              <li><a href="#" class="more">Browse all &#187;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer">&nbsp;</div>
+    </div>
+
+{% endblock %}
