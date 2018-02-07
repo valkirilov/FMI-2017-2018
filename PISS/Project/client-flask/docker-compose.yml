@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  piss.client.flask:
+    build: .
+    container_name: piss.client.flask
+    volumes:
+      - .:/code
+    ports:
+      - "8000:5000"
+    entrypoint: ["bash", "run.sh"]

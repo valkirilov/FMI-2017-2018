@@ -1,3 +1,10 @@
+
+# Client Setup
+
+1. npm install
+2. create .enviroenmentenvironment file
+3. ng serve --host=0.0.0.0
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
