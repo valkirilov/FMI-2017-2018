@@ -2,7 +2,7 @@
 /** 
  * @Author: Valentin Kirilov
  * @Date: 2018-03-26 20:39:24 
- * @Desc:  Swift Programming Course
+ * @Desc: Swift Programming Course
  *
  * Homework 1
  * Task 1
