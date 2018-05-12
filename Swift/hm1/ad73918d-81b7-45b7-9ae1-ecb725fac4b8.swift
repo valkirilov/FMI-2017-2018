@@ -10,14 +10,14 @@
  * FMU, Sofia University 
  */
 
-func findPath(in: [[String]]) -> [(Int, Int)]? {    
-    let startPosition: (Int, Int)? = findStartPosition(input: in)
+func findPath(input: [[String]]) -> [(Int, Int)]? {    
+    let startPosition: (Int, Int)? = findStartPosition(input: input)
 
     if let hasStartPosition = startPosition {
         var solution: [(Int, Int)] = []
-        var visited: [[Bool]] = Array(repeating: Array(repeating: false, count: in[0].count), count: input.count)
+        var visited: [[Bool]] = Array(repeating: Array(repeating: false, count: input[0].count), count: input.count)
 
-        if makeMove(input: in, hasStartPosition.0, hasStartPosition.1, &visited, &solution) {
+        if makeMove(input: input, hasStartPosition.0, hasStartPosition.1, &visited, &solution) {
             return solution
         }
     }

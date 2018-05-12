@@ -10,15 +10,15 @@
  * FMU, Sofia University
  */
 
-func generate(input: String, type: String) -> [String] {
+func generate(in: String, type: String) -> [String] {
     var results: [String] = [];
 
     if type == "P" {
         let fromIndex = 0
-        generatePermutation(&results, input: input, from: fromIndex)
+        generatePermutation(&results, input: in, from: fromIndex)
     }
     else if type == "C" {
-        let inputCharacters = Array(input)
+        let inputCharacters = Array(in)
         let fromIndex = 0
         let currentString = ""
         generateCombination(&results, input: inputCharacters, from: fromIndex, current: currentString)
@@ -65,21 +65,21 @@ func swapStringLetters(target inputString: String, from firstIndex: Int, to seco
 }
 
 // Test permutations
-let task1Result1 = generate(input: "AB", type: "P")
-print(task1Result1)
+//let task1Result1 = generate(in: "AB", type: "P")
+//print(task1Result1)
 
-let task1Result2 = generate(input: "ABC", type: "P")
-print(task1Result2)
+//let task1Result2 = generate(in: "ABC", type: "P")
+//print(task1Result2)
 
-let task1Result3 = generate(input: "ABCD", type: "P")
-print(task1Result3)
+//let task1Result3 = generate(in: "ABCD", type: "P")
+//print(task1Result3)
 
-// Test combinations
-let task2Result1 = generate(input: "AB", type: "C")
-print(task2Result1)
+// // Test combinations
+// let task2Result1 = generate(input: "AB", type: "C")
+// print(task2Result1)
 
-let task2Result2 = generate(input: "ABC", type: "C")
-print(task2Result2)
+// let task2Result2 = generate(input: "ABC", type: "C")
+// print(task2Result2)
 
-let task2Result3 = generate(input: "ABCD", type: "C")
-print(task2Result3)
+// let task2Result3 = generate(input: "ABCD", type: "C")
+// print(task2Result3)

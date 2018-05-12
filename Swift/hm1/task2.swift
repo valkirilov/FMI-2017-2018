@@ -80,7 +80,7 @@ func splitInput(_ input: String) -> [String]? {
                 splited.append(currentChar)
             }
             else {          
-                print("Invalid expression")
+                //print("Invalid expression")
                 return nil
             }
         }
@@ -108,7 +108,7 @@ func convertToRPN(_ input: [String]) -> [String]? {
         }
         else if (token == ",") {
             if (stack.contains("(") == false || stack.count == 0) {
-                print("Invalid function separator")
+                //print("Invalid function separator")
                 return nil
             }
 
@@ -130,7 +130,7 @@ func convertToRPN(_ input: [String]) -> [String]? {
         }
         else if (token == ")") {
             if (stack.contains("(") == false || stack.count == 0) {
-                print("Stack has no (")
+                //print("Stack has no (")
                 return nil
             }        
 
@@ -152,7 +152,7 @@ func convertToRPN(_ input: [String]) -> [String]? {
 
     while (stack.count > 0) {
         if (BRACKETS.contains(stackTop(stack)) == true) {
-            print("Invalid expression")
+            //print("Invalid expression")
             return nil
         }
 
@@ -174,7 +174,7 @@ func calculateWithReversePolishNotation(_ queue: [String]) -> Double? {
         else if (ARITHMETIC.contains(token) == true || FUNCTIONS.contains(token) == true) {
             if (token == "+" || token == "*" || token == "-" || token == "/" || token == "^") {
                 if (stack.count < 2) {
-                    print("Not enough arguments")
+                    //print("Not enough arguments")
                     return nil
                 }
 
@@ -194,7 +194,7 @@ func calculateWithReversePolishNotation(_ queue: [String]) -> Double? {
                         break
                     case "/":
                         if (token == "/" && firstArgument == 0) {
-                            print("Cannot divide by zero")
+                            //print("Cannot divide by zero")
                             return nil
                         }
 
@@ -213,7 +213,7 @@ func calculateWithReversePolishNotation(_ queue: [String]) -> Double? {
     }
 
     if (stack.count != 1) {
-        print("Invalid result")
+        //print("Invalid result")
         return nil
     }
     else {
@@ -244,25 +244,25 @@ func stackTop(_ stack: [String]) -> String {
 }
 
 // Lets test the caluclator
-let examples: [String] = [
-    "5+6",
-    "5-6",
-    "5*6",
-    "10/2",
-    "2^10",
-    "3/0",
-    "1+2-3*4/5",
-    "((1+2) * (3+4)) / (5+6) * 7/8",
-    "(1+2) * 2^10",
-    "((23 + 6) * 2)"
-]
+// let examples: [String] = [
+//     "5+6",
+//     "5-6",
+//     "5*6",
+//     "10/2",
+//     "2^10",
+//     "3/0",
+//     "1+2-3*4/5",
+//     "((1+2) * (3+4)) / (5+6) * 7/8",
+//     "(1+2) * 2^10",
+//     "((23 + 6) * 2)"
+// ]
 
-for example in examples {
-    let result = evaluate(expression: example)
-    if let hasResult = result {
-        print("\(example)=\(hasResult)")
-    }
-    else {
-        print("\(example)=Incorrect")
-    }
-}
+// for example in examples {
+//     let result = evaluate(expression: example)
+//     if let hasResult = result {
+//         print("\(example)=\(hasResult)")
+//     }
+//     else {
+//         print("\(example)=Incorrect")
+//     }
+// }
