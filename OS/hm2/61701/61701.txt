@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+
+https://stackoverflow.com/questions/41001475/extract-part-of-the-code-and-parse-html-in-bash?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+https://stackoverflow.com/questions/3362920/get-just-the-filename-from-a-path-in-a-bash-script?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+https://stackoverflow.com/questions/1951506/add-a-new-element-to-an-array-without-specifying-the-index-in-bash?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+https://stackoverflow.com/questions/13219634/easiest-way-to-check-for-an-index-or-a-key-in-an-array?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa

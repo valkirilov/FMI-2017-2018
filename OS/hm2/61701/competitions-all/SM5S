@@ -1,0 +1,93 @@
+START-OF-LOG: 3.0
+CALLSIGN: SM5S
+CATEGORY-ASSISTED: ASSISTED
+CATEGORY-BAND: ALL
+CATEGORY-MODE: MIXED
+CATEGORY-OPERATOR: SINGLE-OP
+CATEGORY-POWER: LOW
+QSO:  3543 CW 2017-11-19 0201 SM5S          599 18     LZ1D          599 SF           
+QSO:  3511 CW 2017-11-19 0205 SM5S          599 18     K1LZ          599 8            
+QSO:  3518 CW 2017-11-19 0208 SM5S          599 18     LZ4AE         599 VR           
+QSO:  3520 CW 2017-11-19 0208 SM5S          599 18     LZ1KDP        599 SF           
+QSO:  3521 CW 2017-11-19 0209 SM5S          599 18     OK2SGW        599 28           
+QSO:  3517 CW 2017-11-19 0211 SM5S          599 18     LZ1IA         599 SF           
+QSO:  3518 CW 2017-11-19 0212 SM5S          599 18     LZ5R          599 PD           
+QSO:  3529 CW 2017-11-19 0212 SM5S          599 18     LZ7J          599 SZ           
+QSO:  3526 CW 2017-11-19 0215 SM5S          599 18     LZ3FM         599 PK           
+QSO:  3522 CW 2017-11-19 0217 SM5S          599 18     LZ8E          599 RZ           
+QSO:  3749 PH 2017-11-19 0219 SM5S          59  18     9A3B          59  28           
+QSO:  3515 CW 2017-11-19 0222 SM5S          599 18     RT9S          599 30           
+QSO:  3512 CW 2017-11-19 0222 SM5S          599 18     LZ3ZZ         599 SZ           
+QSO:  3510 CW 2017-11-19 0225 SM5S          599 18     EW2R          599 29           
+QSO:  3517 CW 2017-11-19 0226 SM5S          599 18     SP4AWE        599 28           
+QSO:  3520 CW 2017-11-19 0228 SM5S          599 18     OK2SG         599 28           
+QSO:  7018 CW 2017-11-19 0857 SM5S          599 18     LZ5G          599 PA           
+QSO:  7025 CW 2017-11-19 0858 SM5S          599 18     YT4W          599 28           
+QSO:  7014 CW 2017-11-19 0902 SM5S          599 18     SP2MHC        599 28           
+QSO: 14017 CW 2017-11-19 0906 SM5S          599 18     RK3PWR        599 29           
+QSO: 14015 CW 2017-11-19 0909 SM5S          599 18     LZ5XQ         599 BU           
+QSO: 14019 CW 2017-11-19 0912 SM5S          599 18     LZ2DJA        599 MN           
+QSO: 14019 CW 2017-11-19 0913 SM5S          599 18     LZ1DQ         599 SZ           
+QSO: 14021 CW 2017-11-19 0913 SM5S          599 18     LZ5VK         599 SF           
+QSO: 14029 CW 2017-11-19 0915 SM5S          599 18     LZ7Z          599 SF           
+QSO: 14029 CW 2017-11-19 0917 SM5S          599 18     UR7HCX        599 29           
+QSO: 14034 CW 2017-11-19 0919 SM5S          599 18     I3VJW         599 28           
+QSO: 14044 CW 2017-11-19 0920 SM5S          599 18     LZ1RW         599 SZ           
+QSO: 14047 CW 2017-11-19 0921 SM5S          599 18     LZ5VV         599 SF           
+QSO: 14050 CW 2017-11-19 0926 SM5S          599 18     UW7M          599 29           
+QSO: 14008 CW 2017-11-19 0928 SM5S          599 18     UR5R          599 29           
+QSO: 14013 CW 2017-11-19 0931 SM5S          599 18     EW2R          599 29           
+QSO: 14015 CW 2017-11-19 0932 SM5S          599 18     US8ICM        599 29           
+QSO: 14017 CW 2017-11-19 0933 SM5S          599 18     LZ5R          599 PD           
+QSO: 14018 CW 2017-11-19 0933 SM5S          599 18     YU5D          599 28           
+QSO: 14018 CW 2017-11-19 0934 SM5S          599 18     UC0A          599 32           
+QSO: 14020 CW 2017-11-19 0936 SM5S          599 18     UR5IFM        599 29           
+QSO: 14020 CW 2017-11-19 0937 SM5S          599 18     YT2ISM        599 28           
+QSO: 14022 CW 2017-11-19 0938 SM5S          599 18     UY5ZZ         599 29           
+QSO: 14025 CW 2017-11-19 0939 SM5S          599 18     RD3FV         599 29           
+QSO: 14026 CW 2017-11-19 0941 SM5S          599 18     RT9L          599 30           
+QSO: 14028 CW 2017-11-19 0942 SM5S          599 18     EA1VT         599 37           
+QSO: 14030 CW 2017-11-19 0943 SM5S          599 18     RT9S          599 30           
+QSO: 14032 CW 2017-11-19 0945 SM5S          599 18     RL4A          599 29           
+QSO: 14034 CW 2017-11-19 0947 SM5S          599 18     I3VJW         599 28           
+QSO: 14035 CW 2017-11-19 0953 SM5S          599 18     LZ1GE         599 PA           
+QSO: 14036 CW 2017-11-19 0957 SM5S          599 18     ES5QD         599 29           
+QSO: 14040 CW 2017-11-19 0958 SM5S          599 18     UR7VA         599 29           
+QSO: 14042 CW 2017-11-19 0958 SM5S          599 18     Z35M          599 28           
+QSO: 14043 CW 2017-11-19 0959 SM5S          599 18     R8XW          599 20           
+QSO: 14044 CW 2017-11-19 1001 SM5S          599 18     IT9CKA        599 28           
+QSO: 14056 CW 2017-11-19 1004 SM5S          599 18     F5VMN         599 27           
+QSO: 14059 CW 2017-11-19 1007 SM5S          599 18     LZ5W          599 SZ           
+QSO: 14009 CW 2017-11-19 1112 SM5S          599 18     LZ1PJ         599 SF           
+QSO: 14010 CW 2017-11-19 1114 SM5S          599 18     RW4WA         599 30           
+QSO: 14011 CW 2017-11-19 1116 SM5S          599 18     DJ9SN         599 28           
+QSO: 14013 CW 2017-11-19 1118 SM5S          599 18     RK4FL         599 29           
+QSO: 14013 CW 2017-11-19 1125 SM5S          599 18     RW9DX         599 30           
+QSO: 14014 CW 2017-11-19 1126 SM5S          599 18     PA5WT         599 27           
+QSO: 14015 CW 2017-11-19 1127 SM5S          599 18     RM2D          599 29           
+QSO: 14015 CW 2017-11-19 1128 SM5S          599 18     RK4FD         599 29           
+QSO: 14015 CW 2017-11-19 1129 SM5S          599 18     RZ3QM         599 29           
+QSO: 14016 CW 2017-11-19 1130 SM5S          599 18     LZ5DD         599 SF           
+QSO: 14016 CW 2017-11-19 1131 SM5S          599 18     EA7AAW        599 37           
+QSO: 14014 CW 2017-11-19 1134 SM5S          599 18     RX9AF         599 30           
+QSO: 14016 CW 2017-11-19 1138 SM5S          599 18     NR3X          599 8            
+QSO: 14016 CW 2017-11-19 1138 SM5S          599 18     RT5C          599 29           
+QSO: 14036 CW 2017-11-19 1139 SM5S          599 18     R5AJ          599 29           
+QSO: 14038 CW 2017-11-19 1140 SM5S          599 18     LZ1ZJ         599 SF           
+QSO: 14039 CW 2017-11-19 1141 SM5S          599 18     LZ1QN         599 BU           
+QSO: 14040 CW 2017-11-19 1141 SM5S          599 18     LZ7U          599 YA           
+QSO: 14038 CW 2017-11-19 1143 SM5S          599 18     LY6A          599 29           
+QSO: 14039 CW 2017-11-19 1144 SM5S          599 18     LZ6C          599 MN           
+QSO: 14033 CW 2017-11-19 1145 SM5S          599 18     LZ1KDP        599 SF           
+QSO: 14032 CW 2017-11-19 1146 SM5S          599 18     LZ2CJ         599 PL           
+QSO: 14025 CW 2017-11-19 1147 SM5S          599 18     YL5T          599 29           
+QSO: 14024 CW 2017-11-19 1147 SM5S          599 18     LZ3ZZ         599 SZ           
+QSO: 14028 CW 2017-11-19 1149 SM5S          599 18     LZ1FY         599 SF           
+QSO: 14045 CW 2017-11-19 1155 SM5S          599 18     IZ8EPX        599 28           
+QSO: 14044 CW 2017-11-19 1155 SM5S          599 18     LZ8R          599 VD           
+QSO: 14051 CW 2017-11-19 1157 SM5S          599 18     LZ1FH         599 PK           
+QSO: 14052 CW 2017-11-19 1158 SM5S          599 18     R5DC          599 29           
+QSO: 14054 CW 2017-11-19 1158 SM5S          599 18     RW4C          599 29           
+QSO: 14054 CW 2017-11-19 1159 SM5S          599 18     YO4AAC        599 28           
+QSO: 14057 CW 2017-11-19 1159 SM5S          599 18     IZ3SQW        599 28           
+END-OF-LOG: 
